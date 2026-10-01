@@ -1,0 +1,160 @@
+{
+  "name": "Amirmohammad Shams",
+  "firstName": "Amirmohammad",
+  "lastName": "Shams",
+  "titles": ["Full-Stack Developer", "Web, Backend & Mobile Developer"],
+  "jobTitle": "Full-Stack Developer",
+  "summary": "Full-stack developer with 10 years of software engineering experience across modern web, backend, and mobile systems. I build scalable React and Next.js applications, Node.js and NestJS APIs, and Firebase-backed platforms, with strong experience in system design, databases, testing, CI/CD, and cloud deployment. I bring additional expertise in Flutter and Android development, with end-to-end ownership from architecture and implementation through testing and production deployment. I am experienced in distributed teams, concurrent freelance projects, and technical mentorship.",
+  "metaDescription": "Amirmohammad Shams — full-stack developer in Yerevan with 10 years building React, Next.js, Node.js and Flutter products. Resume, experience and portfolio.",
+  "photo": "/images/photo.jpg",
+  "links": {
+    "site": "https://amirshams.me",
+    "email": "amir.m.shams.dev@gmail.com",
+    "phone": "+98 903 728 9588",
+    "phoneHref": "+989037289588",
+    "linkedin": "https://www.linkedin.com/in/amir-mohammad-shams/",
+    "linkedinLabel": "amir-mohammad-shams",
+    "github": "https://github.com/amirmohammadshamss",
+    "githubLabel": "amirmohammadshamss",
+    "twitter": "https://twitter.com/amir504036",
+    "twitterHandle": "@amir504036",
+    "resume": "https://docs.google.com/document/d/10q2l7j53mD1Asov5_ZneJ9TB9uwg2umHJULono_H_RQ/edit?usp=sharing",
+    "portfolio": "https://drive.google.com/file/d/1lxC0c5AJgsPGeBw_zC8qjGExiJAhZJ41/view?usp=sharing"
+  },
+  "facts": [
+    { "label": "Experience", "value": "10 years" },
+    { "label": "Residence", "value": "Yerevan, Armenia" },
+    { "label": "Languages", "value": "Persian ( Native ), English ( B2 - Professional working proficiency )" }
+  ],
+  "location": {
+    "city": "Yerevan",
+    "countryCode": "AM"
+  },
+  "languages": ["Persian", "English"],
+  "education": [
+    {
+      "title": "B.Sc. Computer Engineering - Software",
+      "period": "2021 - 2025",
+      "institution": "Allameh Tabarsi University"
+    },
+    {
+      "title": "Dehkhoda High School",
+      "period": "September 2011 - June 2014",
+      "institution": "",
+      "description": "Diploma in Mathematics"
+    }
+  ],
+  "skills": [
+    { "label": "Frontend", "value": "JavaScript, TypeScript, React, Next.js" },
+    { "label": "Backend & APIs", "value": "Node.js, Express.js, NestJS, REST APIs, WebSockets" },
+    { "label": "AI", "value": "OpenAI API, LLMs, Claude Code, RAG" },
+    { "label": "Data, Cloud & DevOps", "value": "AWS, GCP, Firebase, Docker, CI/CD" },
+    { "label": "Architecture & Quality", "value": "API Design, Clean Architecture, DDD, Automated Testing, TDD" },
+    { "label": "Mobile", "value": "Flutter, Kotlin, Android SDK" },
+    { "label": "Collaboration", "value": "Git, GitHub, Scrum, Code Review, Technical Leadership, Mentorship" }
+  ],
+  "knowsAbout": [
+    "JavaScript",
+    "TypeScript",
+    "React",
+    "Next.js",
+    "Node.js",
+    "Express.js",
+    "NestJS",
+    "Firebase",
+    "Flutter",
+    "Kotlin",
+    "Android SDK"
+  ],
+  "experience": [
+    {
+      "title": "Full-Stack Developer",
+      "company": "JustBeFlex",
+      "location": "Remote, France",
+      "period": "June 2026 - August 2026",
+      "highlights": [
+        "Built and delivered full-stack features for a B2B social networking platform designed to connect companies, teams, and professional communities.",
+        "Developed responsive Angular interfaces and integrated them with Express.js backend services through REST APIs.",
+        "Implemented real-time communication features using WebSockets, enabling live updates and interactive social workflows across the platform.",
+        "Designed and integrated backend services for user profiles, company interactions, content workflows, and real-time platform activity.",
+        "Collaborated with the product team to translate business requirements into maintainable frontend and backend features within a fast-paced development cycle."
+      ]
+    },
+    {
+      "title": "Full-Stack Developer",
+      "company": "Zen Artisan",
+      "location": "Remote, France",
+      "period": "January 2024 - December 2025",
+      "highlights": [
+        "Built and maintained full-stack web, backend, and mobile features using React, Express.js, and Flutter as part of a five-person engineering team, owning implementation from architecture and API design through testing and production deployment.",
+        "Designed Firebase-based data workflows with Cloud Firestore and Cloud Storage, supporting structured application data, file management, and reliable synchronization across product features.",
+        "Integrated OpenAI APIs to power AI-assisted workflows, transforming user input into structured application data and automating key parts of the product workflow.",
+        "Deployed and managed backend services and application infrastructure on Google Cloud, integrating cloud services with Firebase for production workloads.",
+        "Implemented data scraping and processing pipelines to collect, normalize, and prepare external location and service data for use within the application.",
+        "Designed and implemented 40+ REST APIs in Express.js, connecting AI, database, storage, web, and mobile workflows into a unified full-stack architecture.",
+        "Built and released Flutter mobile applications, managing production deployments and release workflows for both Google Play and the Apple App Store."
+      ]
+    },
+    {
+      "title": "Freelance Full-Stack Developer",
+      "company": "Upwork Projects",
+      "location": "Remote",
+      "period": "March 2021 - Present",
+      "highlights": [
+        "Deliver features from design through deployment, providing consistent ownership across two production web and mobile products.",
+        "Connect React and Next.js interfaces to Node.js and NestJS services, enabling end-to-end product workflows through REST APIs.",
+        "Redesigned application foundations to improve runtime behavior, strengthen security, reduce maintenance complexity, and create a more consistent user experience.",
+        "Integrated Google Maps and Facebook APIs for mapping and social-platform workflows, avoiding duplicate custom implementation.",
+        "Guide technical decisions in a three-developer team, keeping shared code modular, testable, and reusable as the products evolve."
+      ]
+    },
+    {
+      "title": "Software Developer",
+      "company": "ElasticTeams",
+      "location": "Remote, UK",
+      "period": "June 2022 - September 2024",
+      "highlights": [
+        "Delivered backend APIs and Flutter features that enabled authenticated, real-time client workflows and reliable data synchronization.",
+        "Designed Firebase workflows with Auth, Cloud Firestore, Realtime Database, and Cloud Storage to support secure access, live updates, and file handling.",
+        "Standardized mobile feature architecture with MVVM and GetX, giving a four-person engineering team a consistent structure for feature delivery.",
+        "Implemented ObjectBox persistence and Bluetooth printing, enabling offline and device-dependent field operations."
+      ]
+    },
+    {
+      "title": "Senior Flutter Developer",
+      "company": "Zaryad",
+      "location": "Iran",
+      "period": "March 2019 - March 2021",
+      "highlights": [
+        "Built and released a localized children's learning application in a six-person Flutter team using GetX, Lottie, and Hive.",
+        "Owned implementation through deployment, keeping architecture and release practices consistent across feature delivery.",
+        "Diagnosed and resolved high-impact production failures with Firebase Crashlytics, improving stability and making recurring issues easier to trace.",
+        "Mentored three interns and established an onboarding program that gave new engineers a structured path into the codebase."
+      ]
+    },
+    {
+      "title": "Android Developer",
+      "company": "SilverPath",
+      "location": "Iran",
+      "period": "February 2016 - March 2019",
+      "highlights": [
+        "Advanced from junior developer to ownership of core architecture and reusable foundations used across production projects.",
+        "Delivered banking and insurance applications with responsive interfaces across varied screen sizes and Android device configurations.",
+        "Applied Clean Architecture to separate application concerns and simplify builds, deployment, debugging, and ongoing maintenance.",
+        "Coordinated delivery around team strengths, improving ownership of technical decisions and project outcomes."
+      ]
+    }
+  ],
+  "portfolio": [
+    { "project": "Hello7", "tag": "Flutter", "thumb": "/images/portfolio/portfolioPic1Small.jpeg", "full": "/images/portfolio/full/portfolioPic1.jpeg", "shot": 1 },
+    { "project": "Hello7", "tag": "Flutter", "thumb": "/images/portfolio/portfolioPic2Small.jpeg", "full": "/images/portfolio/full/portfolioPic2.jpeg", "shot": 2 },
+    { "project": "Dido", "tag": "Flutter", "thumb": "/images/portfolio/portfolioPic3Small.jpeg", "full": "/images/portfolio/full/portfolioPic3.jpeg", "shot": 1 },
+    { "project": "Dido", "tag": "Flutter", "thumb": "/images/portfolio/portfolioPic4Small.jpeg", "full": "/images/portfolio/full/portfolioPic4.jpeg", "shot": 2 },
+    { "project": "Zaryad", "tag": "Flutter", "thumb": "/images/portfolio/portfolioPic5Small.jpeg", "full": "/images/portfolio/full/portfolioPic5.jpeg", "shot": 1 },
+    { "project": "Zaryad", "tag": "Flutter", "thumb": "/images/portfolio/portfolioPic6Small.jpeg", "full": "/images/portfolio/full/portfolioPic6.jpeg", "shot": 2 },
+    { "project": "turLister", "tag": "Flutter", "thumb": "/images/portfolio/portfolioPic7Small.jpeg", "full": "/images/portfolio/full/portfolioPic7.jpeg", "shot": 1 },
+    { "project": "turLister", "tag": "Flutter", "thumb": "/images/portfolio/portfolioPic8Small.jpeg", "full": "/images/portfolio/full/portfolioPic8.jpeg", "shot": 2 },
+    { "project": "Care4us", "tag": "Flutter", "thumb": "/images/portfolio/portfolioPic9Small.jpeg", "full": "/images/portfolio/full/portfolioPic9.jpeg", "shot": 1 },
+    { "project": "Care4us", "tag": "Flutter", "thumb": "/images/portfolio/portfolioPic10Small.jpeg", "full": "/images/portfolio/full/portfolioPic10.jpeg", "shot": 2 }
+  ]
+}

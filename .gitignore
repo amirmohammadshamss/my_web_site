@@ -1,2 +1,14 @@
 .DS_Store
 **/.DS_Store
+
+# dependencies
+node_modules/
+
+# Next.js build output
+.next/
+out/
+next-env.d.ts
+
+# misc
+*.tsbuildinfo
+.env*.local

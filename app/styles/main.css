@@ -59,7 +59,7 @@ body {
   background-color: #f5f5f5;
   overflow-x: hidden;
   overflow-y: auto;
-  background-image: url(../images/main_bg.png);
+  background-image: url(/images/main_bg.png);
   background-size: cover;
   -webkit-background-size: cover;
   background-attachment: fixed;
@@ -800,7 +800,7 @@ body > footer .copyrights {
 
 .custom-page-content .page-header.color-1 {
   background-color: #2eca7f;
-  background-image: url(../images/sp_main_bg.png);
+  background-image: url(/images/sp_main_bg.png);
   background-size: cover;
   -webkit-background-size: cover;
   background-attachment: scroll;
@@ -832,7 +832,7 @@ body > footer .copyrights {
   background-color: #2eca7f;
   padding: 50px;
   margin-bottom: 25px;
-  background-image: url(../images/sp_main_bg.png);
+  background-image: url(/images/sp_main_bg.png);
   background-size: cover;
   -webkit-background-size: cover;
   background-attachment: scroll;
@@ -2592,43 +2592,51 @@ Inline SVG icons
 
 
 /* =============================================================================
-Section transitions (View Transitions API)
+Routing
 
-Replaces transition-animations.css + pages-switcher.js. Browsers without
-document.startViewTransition simply swap the section with no animation.
+Each section is now its own document (/, /resume/, /portfolio/), so the single
+.pt-page in a document lays out normally - no absolute positioning, no
+JS-measured container height. @view-transition keeps the cross-fade between
+routes in browsers that support cross-document view transitions.
 ============================================================================= */
 
+@view-transition {
+  navigation: auto;
+}
+
+.subpages {
+  height: auto;
+}
+
+.pt-page {
+  position: relative;
+  height: auto;
+  opacity: 1;
+  visibility: visible;
+  overflow: visible;
+}
+
 @media (prefers-reduced-motion: no-preference) {
-  .pt-page-current {
-    view-transition-name: subpage;
+  ::view-transition-old(root) {
+    animation: subpage-out 320ms cubic-bezier(0.4, 0, 0.2, 1) both;
   }
 
-  /* The sections differ in height, so let the snapshots keep their own. */
-  ::view-transition-old(subpage),
-  ::view-transition-new(subpage) {
-    height: auto;
-  }
-
-  ::view-transition-old(subpage) {
-    animation: subpage-out 400ms cubic-bezier(0.4, 0, 0.2, 1) both;
-  }
-
-  ::view-transition-new(subpage) {
-    animation: subpage-in 400ms cubic-bezier(0.4, 0, 0.2, 1) both;
+  ::view-transition-new(root) {
+    animation: subpage-in 320ms cubic-bezier(0.4, 0, 0.2, 1) both;
   }
 }
 
 @keyframes subpage-out {
   to {
     opacity: 0;
-    transform: translateX(-12%) scale(0.92);
+    transform: translateX(-6%);
   }
 }
 
 @keyframes subpage-in {
   from {
     opacity: 0;
-    transform: translateX(12%) scale(0.92);
+    transform: translateX(6%);
   }
 }
 
@@ -2768,14 +2776,13 @@ from the browser.
 
 
 /* =============================================================================
-Preloader fade-out
+Menu toggle is a <button> now, so it needs the button chrome removed
 ============================================================================= */
 
-.preloader {
-  transition: opacity 500ms ease;
-}
-
-.preloader.is-hidden {
-  opacity: 0;
-  pointer-events: none;
+.mobile-header .menu-toggle {
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  color: inherit;
 }
