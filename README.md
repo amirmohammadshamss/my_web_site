@@ -73,8 +73,17 @@ Two settings this depends on:
 - **Settings → Pages → Source must be "GitHub Actions"**, not "Deploy from a
   branch". The repo has no committed `index.html` any more, so a branch deploy
   would serve nothing.
-- **Settings → Pages → Custom domain stays `amirshams.me`.** `public/CNAME`
-  keeps it in the build output; removing that file detaches the domain.
+- **Settings → Pages → Custom domain must say `amirshams.me`.** This is a
+  repository *setting*, and with Actions-based deployment that setting is the
+  only thing that routes the domain. A `CNAME` file in the build output does
+  **not** set it — that mechanism only applies to the legacy "deploy from a
+  branch" flow, where GitHub syncs the setting with a `CNAME` file in the
+  branch root. So when the root `CNAME` left this repo, GitHub cleared the
+  custom domain and `amirshams.me` started returning "There isn't a GitHub
+  Pages site here" even though the deploy was green. If that happens, re-enter
+  the domain in Settings → Pages and re-tick Enforce HTTPS once the DNS check
+  passes. `public/CNAME` is kept anyway, so the domain would survive a switch
+  back to branch deploys.
 
 Three things are load-bearing in `next.config.mjs` and `public/`:
 
