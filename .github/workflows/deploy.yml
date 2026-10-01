@@ -28,6 +28,12 @@ jobs:
 
       - run: npm ci
 
+      # Fail the deploy on a formatting, lint or type error rather than
+      # shipping it.
+      - run: npm run format:check
+
+      - run: npm run lint
+
       - run: npm run typecheck
 
       - run: npm run build

@@ -63,7 +63,7 @@ export default function PortfolioGrid({ items }: { items: PortfolioItem[] }) {
 
   return (
     <>
-      <div className="flex flex-wrap -mx-[0.5em]">
+      <div className="-mx-[0.5em] flex flex-wrap">
         {items.map((item, position) => (
           <figure
             className="relative m-0 w-full p-[3px] sm:w-1/2 md:w-1/3"
@@ -79,7 +79,7 @@ export default function PortfolioGrid({ items }: { items: PortfolioItem[] }) {
                 open(position);
               }}
             >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
+              {}
               <img
                 src={item.thumb}
                 width={320}
@@ -120,17 +120,18 @@ export default function PortfolioGrid({ items }: { items: PortfolioItem[] }) {
         className="m-0 h-full max-h-full w-full max-w-full overflow-hidden border-0 bg-transparent p-0 backdrop:bg-[#212121]/[0.88]"
       >
         <div className="flex h-full w-full items-center justify-center px-5 py-[60px]">
-          <figure className="relative m-0 max-w-page text-center">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              className="mx-auto block max-h-[calc(100vh-140px)] max-w-full rounded-lg shadow-image"
-              src={current.full}
-              alt={altFor(current)}
-            />
-            <figcaption className="mt-[14px] font-display text-sm tracking-[0.04em] text-white uppercase">
-              {current.project}
-            </figcaption>
-          </figure>
+          {current ? (
+            <figure className="relative m-0 max-w-page text-center">
+              <img
+                className="mx-auto block max-h-[calc(100vh-140px)] max-w-full rounded-lg shadow-image"
+                src={current.full}
+                alt={altFor(current)}
+              />
+              <figcaption className="mt-[14px] font-display text-sm tracking-[0.04em] text-white uppercase">
+                {current.project}
+              </figcaption>
+            </figure>
+          ) : null}
         </div>
 
         <button
@@ -139,7 +140,14 @@ export default function PortfolioGrid({ items }: { items: PortfolioItem[] }) {
           aria-label={t.a11y.close}
           onClick={() => dialogRef.current?.close()}
         >
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" aria-hidden="true">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth={2}
+            strokeLinecap="round"
+            aria-hidden="true"
+          >
             <path d="M6 6l12 12M18 6L6 18" />
           </svg>
         </button>
@@ -150,7 +158,15 @@ export default function PortfolioGrid({ items }: { items: PortfolioItem[] }) {
           aria-label={t.a11y.previousImage}
           onClick={() => step(-1)}
         >
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth={2}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden="true"
+          >
             <path d="M15 5l-7 7 7 7" />
           </svg>
         </button>
@@ -161,7 +177,15 @@ export default function PortfolioGrid({ items }: { items: PortfolioItem[] }) {
           aria-label={t.a11y.nextImage}
           onClick={() => step(1)}
         >
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth={2}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden="true"
+          >
             <path d="M9 5l7 7-7 7" />
           </svg>
         </button>

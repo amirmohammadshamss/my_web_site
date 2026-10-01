@@ -69,10 +69,12 @@ const personSchema = {
     addressLocality: resume.location.city,
     addressCountry: resume.location.countryCode,
   },
-  alumniOf: {
-    '@type': 'CollegeOrUniversity',
-    name: resume.education[0].institution,
-  },
+  alumniOf: resume.education[0]
+    ? {
+        '@type': 'CollegeOrUniversity',
+        name: resume.education[0].institution,
+      }
+    : undefined,
   knowsLanguage: resume.languages,
   knowsAbout: resume.knowsAbout,
   sameAs: [resume.links.linkedin, resume.links.github, resume.links.twitter],

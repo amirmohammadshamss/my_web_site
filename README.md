@@ -7,11 +7,26 @@ Pages at [amirshams.me](https://amirshams.me).
 
 ```bash
 npm install
-npm run dev        # http://localhost:3000
-npm run build      # static export into out/
-npm start          # serve the built out/ directory
-npm run typecheck
+npm run dev          # http://localhost:3000
+npm run build        # static export into out/
+npm start            # serve the built out/ directory
+
+npm run check        # format:check + lint + typecheck, the same gate CI runs
+npm run format       # prettier --write .
+npm run lint:fix     # eslint . --fix
 ```
+
+`npm run check` is what `.github/workflows/deploy.yml` runs before building, so
+a formatting, lint or type error fails the deploy instead of shipping.
+
+TypeScript runs with `strict` plus `noUncheckedIndexedAccess`,
+`noImplicitOverride`, `noImplicitReturns`, `noFallthroughCasesInSwitch`,
+`noUnusedLocals` and `noUnusedParameters`. `noUncheckedIndexedAccess` is the
+one that bites: `items[i]` is `T | undefined`, so indexed reads need a guard.
+
+Prettier runs `prettier-plugin-tailwindcss`, which sorts class names into
+Tailwind's canonical order. That is cosmetic — class order inside the
+attribute never decides which rule wins, the stylesheet's own order does.
 
 ## Editing content
 
@@ -74,7 +89,7 @@ Two settings this depends on:
   branch". The repo has no committed `index.html` any more, so a branch deploy
   would serve nothing.
 - **Settings → Pages → Custom domain must say `amirshams.me`.** This is a
-  repository *setting*, and with Actions-based deployment that setting is the
+  repository _setting_, and with Actions-based deployment that setting is the
   only thing that routes the domain. A `CNAME` file in the build output does
   **not** set it — that mechanism only applies to the legacy "deploy from a
   branch" flow, where GitHub syncs the setting with a `CNAME` file in the

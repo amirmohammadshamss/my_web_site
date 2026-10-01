@@ -31,7 +31,7 @@ export default function TextRotation({ titles }: { titles: string[] }) {
           key={title}
           aria-hidden={position !== index}
           className={[
-            '[grid-area:1/1] transition-[opacity,transform] duration-[450ms] ease-in-out motion-reduce:transition-none',
+            'transition-[opacity,transform] duration-[450ms] ease-in-out [grid-area:1/1] motion-reduce:transition-none',
             position === index
               ? 'pointer-events-auto scale-100 opacity-100'
               : 'pointer-events-none scale-125 opacity-0',

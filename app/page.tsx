@@ -23,10 +23,12 @@ export default function HomePage() {
   return (
     <section className={PAGE_SECTION}>
       <div className={SECTION_INNER}>
-        <div className={`${HEADER_PANEL} relative m-0 px-[30px] py-[50px] md:mb-[25px] md:p-[50px]`}>
+        <div
+          className={`${HEADER_PANEL} relative m-0 px-[30px] py-[50px] md:mb-[25px] md:p-[50px]`}
+        >
           <div className={ROW}>
             <div className={COL_THIRD}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
+              {}
               <img
                 src={resume.photo}
                 width={640}
@@ -38,21 +40,48 @@ export default function HomePage() {
 
             <div className={COL_TWO_THIRDS}>
               <div className="text-center">
-                <h1 className="mt-[25px] mb-0 text-[44px] font-bold leading-[1.2em] text-white md:mt-[30px] md:text-[54px] md:leading-[1.5em]">
+                <h1 className="mt-[25px] mb-0 text-[44px] leading-[1.2em] font-bold text-white md:mt-[30px] md:text-[54px] md:leading-[1.5em]">
                   {resume.name}
                 </h1>
                 <TextRotation titles={resume.titles} />
               </div>
 
               <div className="relative mx-auto mt-5 text-center">
-                <a href={links.twitter} aria-label={t.a11y.twitter} rel="me noopener" target="_blank" className={SOCIAL_LINK}>
-                  <Icon name="twitter" className="mx-auto my-[10px] block h-4 w-4 fill-current" />
+                <a
+                  href={links.twitter}
+                  aria-label={t.a11y.twitter}
+                  rel="me noopener"
+                  target="_blank"
+                  className={SOCIAL_LINK}
+                >
+                  <Icon
+                    name="twitter"
+                    className="mx-auto my-[10px] block h-4 w-4 fill-current"
+                  />
                 </a>
-                <a href={links.github} aria-label={t.a11y.github} rel="me noopener" target="_blank" className={SOCIAL_LINK}>
-                  <Icon name="github" className="mx-auto my-[10px] block h-4 w-4 fill-current" />
+                <a
+                  href={links.github}
+                  aria-label={t.a11y.github}
+                  rel="me noopener"
+                  target="_blank"
+                  className={SOCIAL_LINK}
+                >
+                  <Icon
+                    name="github"
+                    className="mx-auto my-[10px] block h-4 w-4 fill-current"
+                  />
                 </a>
-                <a href={links.linkedin} aria-label={t.a11y.linkedin} rel="me noopener" target="_blank" className={SOCIAL_LINK}>
-                  <Icon name="linkedin" className="mx-auto my-[10px] block h-4 w-4 fill-current" />
+                <a
+                  href={links.linkedin}
+                  aria-label={t.a11y.linkedin}
+                  rel="me noopener"
+                  target="_blank"
+                  className={SOCIAL_LINK}
+                >
+                  <Icon
+                    name="linkedin"
+                    className="mx-auto my-[10px] block h-4 w-4 fill-current"
+                  />
                 </a>
               </div>
             </div>
@@ -102,7 +131,9 @@ export default function HomePage() {
                   </span>
                 </li>
                 <li className="my-[6px] text-left">
-                  <span className="inline-block min-w-[120px]">{t.home.factLinkedin}</span>
+                  <span className="inline-block min-w-[120px]">
+                    {t.home.factLinkedin}
+                  </span>
                   <span className="inline-block text-muted">
                     <a href={links.linkedin}>{links.linkedinLabel}</a>
                   </span>

@@ -100,7 +100,7 @@ export default function SiteHeader({
           <div className="relative z-[1] hidden text-center lg:float-left lg:block">
             <div
               className={[
-                'mt-[38px] font-display text-2xl font-medium leading-none text-nav lg:text-xl',
+                'mt-[38px] font-display text-2xl leading-none font-medium text-nav lg:text-xl',
                 sticked ? 'lg:mt-[18px]' : '',
               ]
                 .filter(Boolean)
@@ -145,20 +145,23 @@ export default function SiteHeader({
 
       <div className="fixed inset-x-0 z-[1000] inline-block h-[50px] w-full max-w-full bg-brand shadow-soft lg:hidden">
         <div className="mx-5 text-left">
-          <div className="m-0 float-left inline-block font-display text-[18px] font-normal leading-[50px] text-white">
+          <div className="float-left m-0 inline-block font-display text-[18px] leading-[50px] font-normal text-white">
             {name}
           </div>
         </div>
 
         <button
           type="button"
-          className="float-right block h-[50px] w-[50px] cursor-pointer overflow-hidden border-0 bg-none p-0 mx-1 text-center"
+          className="float-right mx-1 block h-[50px] w-[50px] cursor-pointer overflow-hidden border-0 bg-none p-0 text-center"
           aria-label={t.a11y.toggleMenu}
           aria-controls="site_header"
           aria-expanded={menuOpen}
           onClick={() => setMenuOpen((open) => !open)}
         >
-          <Icon name="bars" className="mx-auto my-[14px] block h-[21px] w-[21px] text-white" />
+          <Icon
+            name="bars"
+            className="mx-auto my-[14px] block h-[21px] w-[21px] text-white"
+          />
         </button>
       </div>
     </>

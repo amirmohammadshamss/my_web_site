@@ -10,7 +10,7 @@ const ROUTES = new Set(['home', 'resume', 'portfolio']);
 
 export default function HashRedirect() {
   useEffect(() => {
-    const hash = window.location.hash.replace(/^#/, '').split('/')[0];
+    const hash = window.location.hash.replace(/^#/, '').split('/')[0] ?? '';
     if (!ROUTES.has(hash)) {
       return;
     }
