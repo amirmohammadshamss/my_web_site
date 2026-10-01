@@ -19,20 +19,29 @@ const NAV = [
  * page scrolls. The template wrote that with max-width queries, so everything
  * here reads mobile-first with lg: for the desktop bar.
  */
+/*
+ * These groups must stay mutually exclusive. Two utilities for the same
+ * property at the same breakpoint (`lg:h-[100px]` and `lg:h-[60px]`) are
+ * decided by the order Tailwind emits them, not by the order they appear in
+ * the class string - so the winner is whichever Tailwind happened to sort
+ * last. Only ever emit one of each pair.
+ */
 const HEADER_BASE = [
-  'fixed top-[50px] right-0 z-[1001] h-[calc(100%-50px)] w-full max-w-[320px] overflow-auto',
-  'bg-brand shadow-panel transition-all duration-[440ms]',
+  'fixed top-[50px] right-0 z-[1001] h-[calc(100%-50px)] max-w-[320px]',
+  'bg-brand transition-all duration-[440ms]',
   '[&_*]:transition-all [&_*]:duration-[440ms]',
-  'lg:top-0 lg:z-[2] lg:h-[100px] lg:max-w-none lg:overflow-visible',
-  'lg:bg-transparent lg:shadow-none lg:duration-200 lg:[&_*]:duration-200',
+  'lg:top-0 lg:z-[2] lg:mr-0 lg:w-full lg:max-w-none lg:overflow-visible',
+  'lg:duration-200 lg:[&_*]:duration-200 lg:[&_*]:visible lg:[&_*]:opacity-100',
 ].join(' ');
 
-/* .mobile-menu-hide: collapsed off-canvas, and reset on the desktop bar. */
-const HEADER_CLOSED = [
-  'w-0 -mr-[100%] overflow-hidden shadow-none',
-  '[&_*]:invisible [&_*]:opacity-0',
-  'lg:mr-0 lg:w-full lg:overflow-visible lg:[&_*]:visible lg:[&_*]:opacity-100',
-].join(' ');
+/* The off-canvas panel, open vs collapsed (.mobile-menu-hide). */
+const HEADER_OPEN = 'w-full overflow-auto shadow-panel';
+const HEADER_CLOSED =
+  'w-0 -mr-[100%] overflow-hidden shadow-none [&_*]:invisible [&_*]:opacity-0';
+
+/* The desktop bar, at rest vs scrolled (.header.sticked). */
+const HEADER_TOP = 'lg:h-[100px] lg:bg-transparent lg:shadow-none';
+const HEADER_STICKED = 'lg:h-[60px] lg:bg-white lg:shadow-soft';
 
 const NAV_LINK = [
   'relative m-0 block px-[10px] py-[15px] text-center text-[15px] font-normal leading-none',
@@ -83,11 +92,9 @@ export default function SiteHeader({
         id="site_header"
         className={[
           HEADER_BASE,
-          menuOpen ? '' : HEADER_CLOSED,
-          sticked ? 'lg:h-[60px] lg:bg-white lg:shadow-soft' : '',
-        ]
-          .filter(Boolean)
-          .join(' ')}
+          menuOpen ? HEADER_OPEN : HEADER_CLOSED,
+          sticked ? HEADER_STICKED : HEADER_TOP,
+        ].join(' ')}
       >
         <div className="mx-[15px] max-w-page xl:mx-auto">
           <div className="relative z-[1] hidden text-center lg:float-left lg:block">
@@ -110,7 +117,7 @@ export default function SiteHeader({
                   key={item.href}
                   className={[
                     'm-0 block w-full p-0 lg:relative lg:float-left lg:inline-block lg:w-auto lg:text-center',
-                    index === 0 ? 'mt-[25px] lg:mt-0' : '',
+                    index === 0 ? 'mt-[25px]' : '',
                     sticked ? 'lg:mt-[13px]' : 'lg:mt-[33px]',
                     index === NAV.length - 1 ? 'lg:[&>a]:mr-0' : '',
                   ]
