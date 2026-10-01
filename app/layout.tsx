@@ -91,22 +91,29 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
         />
       </head>
-      <body className="material-template">
+      <body>
         <HashRedirect />
-        <div id="page" className="page">
+        <div className="relative h-auto w-full">
           <SiteHeader
             name={resume.name}
             firstName={resume.firstName}
             lastName={resume.lastName}
           />
-          <div id="main" className="site-main">
-            <div className="pt-wrapper">
-              <div className="subpages">{children}</div>
+          {/*
+            The mobile header is fixed at 50px tall, so the main column is
+            padded past it. The template positioned this absolutely against a
+            zero-height parent, which worked only by accident.
+          */}
+          <main className="relative h-auto w-full pt-[50px] lg:pt-0">
+            <div className="relative z-[1] w-full">
+              <div className="relative mx-auto h-auto w-full overflow-hidden pt-[15px] [perspective:1500px] lg:pt-[100px]">
+                {children}
+              </div>
             </div>
-          </div>
+          </main>
         </div>
-        <footer>
-          <div className="copyrights">
+        <footer className="fixed inset-x-0 bottom-0">
+          <div className="mb-3 block text-center text-xs text-muted">
             &copy; 2026 {resume.name} &middot;{' '}
             <a href={`mailto:${resume.links.email}`}>Email</a> &middot;{' '}
             <a href={resume.links.github} rel="noopener" target="_blank">

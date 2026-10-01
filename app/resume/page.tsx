@@ -1,6 +1,23 @@
 import type { Metadata } from 'next';
 
 import resume from '@/data/resume.json';
+import {
+  BLOCK_TITLE,
+  BTN_SECONDARY,
+  COL,
+  COL_HALF,
+  HEADER_PANEL,
+  ITEM_DESCRIPTION,
+  ITEM_PERIOD,
+  ITEM_SMALL,
+  ITEM_TITLE,
+  PAGE_CONTENT,
+  PAGE_SECTION,
+  ROW,
+  SECTION_INNER,
+  TIMELINE,
+  TIMELINE_ITEM,
+} from '../ui';
 
 export const metadata: Metadata = {
   title: 'Resume',
@@ -10,44 +27,44 @@ export const metadata: Metadata = {
 
 export default function ResumePage() {
   return (
-    <section className="pt-page pt-page-current" data-id="resume">
-      <div className="section-inner custom-page-content">
-        <div className="page-header color-1">
-          <h2>Resume</h2>
+    <section className={PAGE_SECTION}>
+      <div className={SECTION_INNER}>
+        <div
+          className={`${HEADER_PANEL} m-0 border-0 px-[30px] py-[15px] text-center md:px-[50px] md:py-[30px]`}
+        >
+          <h2 className="m-0 text-[33px] text-white md:text-[44px]">Resume</h2>
         </div>
 
-        <div className="page-content">
-          <div className="row">
-            <div className="col-sm-6 col-md-6 col-lg-6">
-              <div className="block">
-                <div className="block-title">
-                  <h3>Education</h3>
-                </div>
+        <div className={`${PAGE_CONTENT} bg-white`}>
+          <div className={ROW}>
+            <div className={COL_HALF}>
+              <div className="mb-[30px]">
+                <h3 className={BLOCK_TITLE}>Education</h3>
 
-                <div className="timeline">
+                <div className={TIMELINE}>
                   {resume.education.map((item) => (
-                    <div className="timeline-item" key={item.title}>
-                      <h4 className="item-title">{item.title}</h4>
-                      <span className="item-period">{item.period}</span>
-                      <span className="item-small">{item.institution}</span>
+                    <div className={TIMELINE_ITEM} key={item.title}>
+                      <h4 className={ITEM_TITLE}>{item.title}</h4>
+                      <span className={ITEM_PERIOD}>{item.period}</span>
+                      {item.institution ? (
+                        <span className={ITEM_SMALL}>{item.institution}</span>
+                      ) : null}
                       {item.description ? (
-                        <p className="item-description">{item.description}</p>
+                        <p className={ITEM_DESCRIPTION}>{item.description}</p>
                       ) : null}
                     </div>
                   ))}
                 </div>
 
-                <div className="block-title">
-                  <h3>
-                    Coding <span>Skills</span>
-                  </h3>
-                </div>
+                <h3 className={`${BLOCK_TITLE} mt-[25px]`}>
+                  Coding <span className="text-brand">Skills</span>
+                </h3>
 
-                <div className="timeline">
-                  <div className="timeline-item">
+                <div className={TIMELINE}>
+                  <div className={TIMELINE_ITEM}>
                     {resume.skills.map((skill) => (
-                      <p className="item-description" key={skill.label}>
-                        <strong>{skill.label}:</strong> {skill.value}
+                      <p className={ITEM_DESCRIPTION} key={skill.label}>
+                        <strong className="font-bold">{skill.label}:</strong> {skill.value}
                       </p>
                     ))}
                   </div>
@@ -55,22 +72,20 @@ export default function ResumePage() {
               </div>
             </div>
 
-            <div className="col-sm-6 col-md-6 col-lg-6">
-              <div className="block">
-                <div className="block-title">
-                  <h3>Experience</h3>
-                </div>
+            <div className={COL_HALF}>
+              <div className="mb-[30px]">
+                <h3 className={BLOCK_TITLE}>Experience</h3>
 
-                <div className="timeline">
+                <div className={TIMELINE}>
                   {resume.experience.map((job) => (
-                    <div className="timeline-item" key={`${job.company}-${job.period}`}>
-                      <h4 className="item-title">{job.title}</h4>
-                      <span className="item-period">{job.period}</span>
-                      <span className="item-small">
+                    <div className={TIMELINE_ITEM} key={`${job.company}-${job.period}`}>
+                      <h4 className={ITEM_TITLE}>{job.title}</h4>
+                      <span className={ITEM_PERIOD}>{job.period}</span>
+                      <span className={ITEM_SMALL}>
                         {[job.company, job.location].filter(Boolean).join(', ')}
                       </span>
                       {job.highlights.map((highlight) => (
-                        <p className="item-description" key={highlight}>
+                        <p className={ITEM_DESCRIPTION} key={highlight}>
                           {highlight}
                         </p>
                       ))}
@@ -81,14 +96,12 @@ export default function ResumePage() {
             </div>
           </div>
 
-          <div className="row">
-            <div className="col-sm-12 col-md-12 col-lg-12">
-              <div className="block">
-                <div className="center download-resume">
-                  <a href={resume.links.resume} className="btn btn-secondary">
-                    Download Resume
-                  </a>
-                </div>
+          <div className={ROW}>
+            <div className={COL}>
+              <div className="mb-[30px] text-center">
+                <a href={resume.links.resume} className={BTN_SECONDARY}>
+                  Download Resume
+                </a>
               </div>
             </div>
           </div>

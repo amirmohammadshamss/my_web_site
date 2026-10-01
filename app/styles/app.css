@@ -1,25 +1,122 @@
+@import 'tailwindcss';
+
 /*
- * Stylesheet entry point.
+ * Design tokens lifted from the template stylesheet this replaces.
  *
- * Two things here are load-bearing:
- *
- * 1. Cascade layers. Tailwind puts its utilities in @layer utilities, and any
- *    UNLAYERED rule beats a layered one no matter the source order. The
- *    template stylesheet is full of specific selectors like
- *    `.start-page-content .page-header h1`, so if it stayed unlayered every
- *    utility class would silently lose to it. Declaring the order up front and
- *    importing main.css into its own layer below `utilities` is what makes
- *    `class="mt-4"` actually win.
- *
- * 2. No preflight. `@import "tailwindcss"` would pull in Tailwind's base reset,
- *    which unsets heading sizes, margins and list styles that main.css builds
- *    on. Importing theme + utilities only leaves the template intact, so the
- *    two can coexist during the migration.
+ * The breakpoints are the template's own, not Tailwind's defaults, because the
+ * original was written with max-width queries at 480 / 769 / 991 / 1032 / 1320.
+ * Expressed mobile-first, the boundaries above each of those are what the
+ * layout actually keys off, so the defaults are cleared and replaced rather
+ * than mixed in.
  */
+@theme {
+  --color-brand: #2eca7f;
+  --color-brand-alt: #9e51f3;
+  --color-link-hover: #ff9800;
+  --color-ink: #424242;
+  --color-heading: #212121;
+  --color-muted: #9e9e9e;
+  --color-rule: #e0e0e0;
+  --color-nav: #49515d;
+  --color-page: #f5f5f5;
 
-@layer theme, base, template, components, utilities;
+  --font-sans: 'Roboto', Helvetica, sans-serif;
+  --font-display: 'Montserrat', Helvetica, sans-serif;
 
-@import 'tailwindcss/theme.css' layer(theme);
-@import './base.css' layer(base);
-@import './main.css' layer(template);
-@import 'tailwindcss/utilities.css' layer(utilities);
+  --breakpoint-*: initial;
+  --breakpoint-sm: 481px;
+  --breakpoint-md: 770px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1033px;
+
+  --shadow-card: 0 15px 25px 0 rgb(0 0 0 / 0.1);
+  --shadow-soft: 0 3px 8px 0 rgb(0 0 0 / 0.1);
+  --shadow-lift: 0 6px 18px 0 rgb(0 0 0 / 0.2);
+  --shadow-panel: 0 10px 10px 0 rgb(0 0 0 / 0.2);
+  --shadow-btn: 0 1px 1px rgb(0 0 0 / 0.1), 0 2px 4px rgb(0 0 0 / 0.3);
+  --shadow-btn-hover: 0 2px 4px rgb(0 0 0 / 0.1), 0 4px 8px rgb(0 0 0 / 0.3);
+  --shadow-item: 0 0 3px 0 rgb(0 0 0 / 0.2);
+  --shadow-item-hover: 0 0 8px 0 rgb(0 0 0 / 0.2);
+  --shadow-photo: 0 18px 24px rgb(0 0 0 / 0.15);
+  --shadow-image: 0 15px 25px rgb(0 0 0 / 0.3);
+
+  --container-page: 1032px;
+}
+
+@layer base {
+  html {
+    height: 100%;
+  }
+
+  body {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-color: var(--color-page);
+    background-image: url('/images/main_bg.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: var(--font-sans);
+    font-size: 15px;
+    line-height: 1.6em;
+    color: var(--color-ink);
+  }
+
+  /* Tailwind's preflight resets link colour, so restore the template's. */
+  a {
+    color: var(--color-brand);
+    transition: all 0.3s ease-in-out;
+  }
+
+  a:hover {
+    color: var(--color-link-hover);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    line-height: 1.5em;
+    color: var(--color-heading);
+  }
+}
+
+/*
+ * The handful of things no utility expresses: the view-transition pseudo
+ * elements and their keyframes.
+ */
+@media (prefers-reduced-motion: no-preference) {
+  ::view-transition-old(root) {
+    animation: subpage-out 320ms cubic-bezier(0.4, 0, 0.2, 1) both;
+  }
+
+  ::view-transition-new(root) {
+    animation: subpage-in 320ms cubic-bezier(0.4, 0, 0.2, 1) both;
+  }
+}
+
+@keyframes subpage-out {
+  to {
+    opacity: 0;
+    transform: translateX(-6%);
+  }
+}
+
+@keyframes subpage-in {
+  from {
+    opacity: 0;
+    transform: translateX(6%);
+  }
+}
+
+@view-transition {
+  navigation: auto;
+}

@@ -15,10 +15,11 @@ export type IconName = FilledIcon | 'bars' | 'image';
 
 export function Icon({ name, ...props }: { name: IconName } & SVGProps<SVGSVGElement>) {
   const common = {
-    className: 'icon',
     viewBox: '0 0 24 24',
     'aria-hidden': true,
     focusable: 'false' as const,
+    /* Callers size the icon; this is the fallback. */
+    className: 'inline-block h-[1em] w-[1em] align-middle fill-current',
     ...props,
   };
 

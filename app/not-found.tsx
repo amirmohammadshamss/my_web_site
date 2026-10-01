@@ -1,26 +1,36 @@
 import Link from 'next/link';
 
+import {
+  BTN_SECONDARY,
+  COL,
+  HEADER_PANEL,
+  PAGE_CONTENT,
+  PAGE_SECTION,
+  ROW,
+  SECTION_INNER,
+} from './ui';
+
 export const metadata = {
   title: 'Page not found',
 };
 
 export default function NotFound() {
   return (
-    <section className="pt-page pt-page-current" data-id="not-found">
-      <div className="section-inner custom-page-content">
-        <div className="page-header color-1">
-          <h2>Page not found</h2>
+    <section className={PAGE_SECTION}>
+      <div className={SECTION_INNER}>
+        <div
+          className={`${HEADER_PANEL} m-0 border-0 px-[30px] py-[15px] text-center md:px-[50px] md:py-[30px]`}
+        >
+          <h2 className="m-0 text-[33px] text-white md:text-[44px]">Page not found</h2>
         </div>
-        <div className="page-content">
-          <div className="row">
-            <div className="col-sm-12 col-md-12 col-lg-12">
-              <div className="block">
-                <p>That page does not exist.</p>
-                <div className="download-resume">
-                  <Link href="/" className="btn btn-secondary">
-                    Back to home
-                  </Link>
-                </div>
+        <div className={`${PAGE_CONTENT} bg-white`}>
+          <div className={ROW}>
+            <div className={COL}>
+              <p className="mb-[10px] text-[15px] font-normal">That page does not exist.</p>
+              <div className="mt-[15px]">
+                <Link href="/" className={BTN_SECONDARY}>
+                  Back to home
+                </Link>
               </div>
             </div>
           </div>

@@ -12,20 +12,48 @@ const NAV = [
   { href: '/portfolio/', label: 'Portfolio' },
 ];
 
-type SiteHeaderProps = {
+/*
+ * Below 992px the header is a green panel that slides in from the right; above
+ * it is a transparent bar across the top that turns white and shrinks once the
+ * page scrolls. The template wrote that with max-width queries, so everything
+ * here reads mobile-first with lg: for the desktop bar.
+ */
+const HEADER_BASE = [
+  'fixed top-[50px] right-0 z-[1001] h-[calc(100%-50px)] w-full max-w-[320px] overflow-auto',
+  'bg-brand shadow-panel transition-all duration-[440ms]',
+  '[&_*]:transition-all [&_*]:duration-[440ms]',
+  'lg:top-0 lg:z-[2] lg:h-[100px] lg:max-w-none lg:overflow-visible',
+  'lg:bg-transparent lg:shadow-none lg:duration-200 lg:[&_*]:duration-200',
+].join(' ');
+
+/* .mobile-menu-hide: collapsed off-canvas, and reset on the desktop bar. */
+const HEADER_CLOSED = [
+  'w-0 -mr-[100%] overflow-hidden shadow-none',
+  '[&_*]:invisible [&_*]:opacity-0',
+  'lg:mr-0 lg:w-full lg:overflow-visible lg:[&_*]:visible lg:[&_*]:opacity-100',
+].join(' ');
+
+const NAV_LINK = [
+  'relative m-0 block px-[10px] py-[15px] text-center text-[15px] font-normal leading-none',
+  'text-white no-underline',
+  "after:absolute after:inset-x-0 after:bottom-2 after:mx-auto after:block after:h-0.5 after:w-0 after:bg-white after:transition-all after:duration-150 after:content-['']",
+  'lg:mx-5 lg:px-0 lg:py-2 lg:text-nav lg:hover:text-nav',
+  'lg:after:bottom-0 lg:after:bg-brand',
+].join(' ');
+
+export default function SiteHeader({
+  name,
+  firstName,
+  lastName,
+}: {
   name: string;
   firstName: string;
   lastName: string;
-};
-
-/* Takes the few strings it needs as props. Importing the resume data here
-   would pull the whole file into the client bundle. */
-export default function SiteHeader({ name, firstName, lastName }: SiteHeaderProps) {
+}) {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
   const [sticked, setSticked] = useState(false);
 
-  /* Sticky header, as the old scroll handler did at 20px. */
   useEffect(() => {
     const onScroll = () => setSticked(window.scrollY >= 20);
     onScroll();
@@ -33,10 +61,9 @@ export default function SiteHeader({ name, firstName, lastName }: SiteHeaderProp
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  /* Collapse the mobile menu when the viewport grows past the breakpoint. */
   useEffect(() => {
     const onResize = () => {
-      if (window.innerWidth >= 1024) {
+      if (window.innerWidth >= 992) {
         setMenuOpen(false);
       }
     };
@@ -54,25 +81,51 @@ export default function SiteHeader({ name, firstName, lastName }: SiteHeaderProp
       <header
         id="site_header"
         className={[
-          'header',
-          menuOpen ? '' : 'mobile-menu-hide',
-          sticked ? 'sticked' : '',
+          HEADER_BASE,
+          menuOpen ? '' : HEADER_CLOSED,
+          sticked ? 'lg:h-[60px] lg:bg-white lg:shadow-soft' : '',
         ]
           .filter(Boolean)
           .join(' ')}
       >
-        <div className="header-content">
-          <div className="site-title-block mobile-hidden">
-            <div className="site-title">
-              {firstName} <span>{lastName}</span>
+        <div className="mx-[15px] max-w-page xl:mx-auto">
+          <div className="relative z-[1] hidden text-center lg:float-left lg:block">
+            <div
+              className={[
+                'mt-[38px] font-display text-2xl font-medium leading-none text-nav lg:text-xl',
+                sticked ? 'lg:mt-[18px]' : '',
+              ]
+                .filter(Boolean)
+                .join(' ')}
+            >
+              {firstName} <span className="text-brand">{lastName}</span>
             </div>
           </div>
 
-          <div className="site-nav">
-            <ul id="nav" className="site-main-menu">
-              {NAV.map((item) => (
-                <li key={item.href} className={isActive(item.href) ? 'active' : undefined}>
-                  <Link href={item.href} onClick={closeMenu}>
+          <div className="lg:float-right">
+            <ul className="m-0 block p-0">
+              {NAV.map((item, index) => (
+                <li
+                  key={item.href}
+                  className={[
+                    'm-0 block w-full p-0 lg:relative lg:float-left lg:inline-block lg:w-auto lg:text-center',
+                    index === 0 ? 'mt-[25px] lg:mt-0' : '',
+                    sticked ? 'lg:mt-[13px]' : 'lg:mt-[33px]',
+                    index === NAV.length - 1 ? 'lg:[&>a]:mr-0' : '',
+                  ]
+                    .filter(Boolean)
+                    .join(' ')}
+                >
+                  <Link
+                    href={item.href}
+                    onClick={closeMenu}
+                    className={[
+                      NAV_LINK,
+                      isActive(item.href)
+                        ? 'opacity-100 after:w-[25px]'
+                        : 'opacity-60 hover:opacity-100 hover:after:w-[25px]',
+                    ].join(' ')}
+                  >
                     {item.label}
                   </Link>
                 </li>
@@ -82,20 +135,22 @@ export default function SiteHeader({ name, firstName, lastName }: SiteHeaderProp
         </div>
       </header>
 
-      <div className="mobile-header mobile-visible">
-        <div className="mobile-logo-container">
-          <div className="mobile-site-title">{name}</div>
+      <div className="fixed inset-x-0 z-[1000] inline-block h-[50px] w-full max-w-full bg-brand shadow-soft lg:hidden">
+        <div className="mx-5 text-left">
+          <div className="m-0 float-left inline-block font-display text-[18px] font-normal leading-[50px] text-white">
+            {name}
+          </div>
         </div>
 
         <button
           type="button"
-          className="menu-toggle mobile-visible"
+          className="float-right block h-[50px] w-[50px] cursor-pointer overflow-hidden border-0 bg-none p-0 mx-1 text-center"
           aria-label="Toggle navigation menu"
           aria-controls="site_header"
           aria-expanded={menuOpen}
           onClick={() => setMenuOpen((open) => !open)}
         >
-          <Icon name="bars" />
+          <Icon name="bars" className="mx-auto my-[14px] block h-[21px] w-[21px] text-white" />
         </button>
       </div>
     </>

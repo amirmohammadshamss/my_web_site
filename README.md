@@ -32,7 +32,8 @@ app/
   not-found.tsx         -> 404.html
   robots.ts             -> robots.txt
   sitemap.ts            -> sitemap.xml
-  styles/               base.css (grid + resets), main.css (theme)
+  styles/app.css        Tailwind entry: design tokens, base layer, keyframes
+  ui.ts                 class strings shared by more than one page
   components/           SiteHeader, PortfolioGrid, TextRotation, Icon, HashRedirect
 data/resume.json        the single source of content
 public/                 images, CNAME, .nojekyll, .well-known
@@ -69,10 +70,14 @@ would both need to be set to `/my_web_site`.
 - The old single-page site used `#home` / `#resume` / `#portfolio` hashes.
   `app/components/HashRedirect.tsx` forwards those to the real routes so
   previously shared links keep working.
-- Fonts load from Google Fonts over HTTPS. Switching to `next/font` would
-  self-host them and drop the third-party request, but `styles/main.css` names
-  `'Roboto'` and `'Montserrat'` directly, so that change means rewriting those
-  declarations to use the font variables.
-- `styles/main.css` is the original template stylesheet and still carries rules
-  for a blog, testimonials, a contact form, pricing tables and skill bars that
-  this site does not use. Purging it would roughly halve the CSS.
+- Styling is Tailwind 4, configured CSS-first in `app/styles/app.css`. The
+  template stylesheet is gone; design tokens (brand colours, the two fonts,
+  shadows, the 1032px container) live in the `@theme` block.
+- **The breakpoints are not Tailwind's defaults.** The original stylesheet was
+  written with `max-width` queries at 480 / 769 / 991 / 1032, so `@theme`
+  clears the defaults and sets `sm: 481px`, `md: 770px`, `lg: 992px`,
+  `xl: 1033px` to match those boundaries mobile-first. `lg:` is the
+  desktop-header breakpoint, not a large desktop.
+- Fonts load from Google Fonts over HTTPS. `next/font` would self-host them and
+  drop the third-party request; the font names are now behind `--font-sans` and
+  `--font-display`, so that swap is a two-line change in `@theme`.

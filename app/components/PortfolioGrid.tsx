@@ -12,6 +12,9 @@ export type PortfolioItem = {
   shot: number;
 };
 
+const LIGHTBOX_BUTTON =
+  'absolute flex h-11 w-11 cursor-pointer items-center justify-center rounded-full border-0 bg-white/10 p-0 text-white transition-colors duration-200 hover:bg-brand focus-visible:bg-brand focus-visible:outline-none [&>svg]:h-[22px] [&>svg]:w-[22px]';
+
 export default function PortfolioGrid({ items }: { items: PortfolioItem[] }) {
   const dialogRef = useRef<HTMLDialogElement>(null);
   const [index, setIndex] = useState(0);
@@ -55,14 +58,17 @@ export default function PortfolioGrid({ items }: { items: PortfolioItem[] }) {
 
   return (
     <>
-      <div id="portfolio_grid" className="portfolio-grid">
+      <div className="flex flex-wrap -mx-[0.5em]">
         {items.map((item, position) => (
-          <figure className="item" key={item.thumb}>
+          <figure
+            className="relative m-0 w-full p-[3px] sm:w-1/2 md:w-1/3"
+            key={item.thumb}
+          >
             {/* A real link to the full image, so it still works without JS. */}
             <a
               href={item.full}
-              className="lightbox"
               title={item.project}
+              className="group relative block overflow-hidden"
               onClick={(event) => {
                 event.preventDefault();
                 open(position);
@@ -76,29 +82,55 @@ export default function PortfolioGrid({ items }: { items: PortfolioItem[] }) {
                 loading="lazy"
                 decoding="async"
                 alt={altFor(item)}
+                className="relative block w-full"
               />
-              <div>
-                <h5 className="name">{item.project}</h5>
-                <small>{item.tag}</small>
-                <Icon name="image" />
+              <div
+                className={[
+                  'absolute top-0 -left-full h-full w-full px-5 py-[5px] text-white',
+                  'transition-all duration-300 group-hover:left-0',
+                  "before:absolute before:inset-0 before:z-0 before:opacity-80 before:content-['']",
+                  /* The template alternated these with :nth-child(even). */
+                  position % 2 === 1 ? 'before:bg-brand-alt' : 'before:bg-brand',
+                ].join(' ')}
+              >
+                <h5 className="relative z-[2] my-[10px] block text-base text-white">
+                  {item.project}
+                </h5>
+                <small className="absolute bottom-[10px] left-5 text-[85%] text-white">
+                  {item.tag}
+                </small>
+                <Icon
+                  name="image"
+                  className="absolute right-5 bottom-[14px] m-0 h-[18px] w-[18px] text-white"
+                />
               </div>
             </a>
           </figure>
         ))}
       </div>
 
-      <dialog ref={dialogRef} className="lightbox-dialog" aria-label="Portfolio image viewer">
-        <div className="lightbox-inner">
-          <figure className="lightbox-figure">
+      <dialog
+        ref={dialogRef}
+        aria-label="Portfolio image viewer"
+        className="m-0 h-full max-h-full w-full max-w-full overflow-hidden border-0 bg-transparent p-0 backdrop:bg-[#212121]/[0.88]"
+      >
+        <div className="flex h-full w-full items-center justify-center px-5 py-[60px]">
+          <figure className="relative m-0 max-w-page text-center">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img className="lightbox-image" src={current.full} alt={altFor(current)} />
-            <figcaption className="lightbox-caption">{current.project}</figcaption>
+            <img
+              className="mx-auto block max-h-[calc(100vh-140px)] max-w-full rounded-lg shadow-image"
+              src={current.full}
+              alt={altFor(current)}
+            />
+            <figcaption className="mt-[14px] font-display text-sm tracking-[0.04em] text-white uppercase">
+              {current.project}
+            </figcaption>
           </figure>
         </div>
 
         <button
           type="button"
-          className="lightbox-button lightbox-close"
+          className={`${LIGHTBOX_BUTTON} top-[14px] right-[14px]`}
           aria-label="Close"
           onClick={() => dialogRef.current?.close()}
         >
@@ -109,7 +141,7 @@ export default function PortfolioGrid({ items }: { items: PortfolioItem[] }) {
 
         <button
           type="button"
-          className="lightbox-button lightbox-prev"
+          className={`${LIGHTBOX_BUTTON} top-1/2 left-[14px] -translate-y-1/2`}
           aria-label="Previous image"
           onClick={() => step(-1)}
         >
@@ -120,7 +152,7 @@ export default function PortfolioGrid({ items }: { items: PortfolioItem[] }) {
 
         <button
           type="button"
-          className="lightbox-button lightbox-next"
+          className={`${LIGHTBOX_BUTTON} top-1/2 right-[14px] -translate-y-1/2`}
           aria-label="Next image"
           onClick={() => step(1)}
         >
