@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { t } from '@/i18n';
 
 import {
   BTN_SECONDARY,
@@ -11,7 +12,7 @@ import {
 } from './ui';
 
 export const metadata = {
-  title: 'Page not found',
+  title: t.notFound.metaTitle,
 };
 
 export default function NotFound() {
@@ -21,15 +22,15 @@ export default function NotFound() {
         <div
           className={`${HEADER_PANEL} m-0 border-0 px-[30px] py-[15px] text-center md:px-[50px] md:py-[30px]`}
         >
-          <h2 className="m-0 text-[33px] text-white md:text-[44px]">Page not found</h2>
+          <h2 className="m-0 text-[33px] text-white md:text-[44px]">{t.notFound.heading}</h2>
         </div>
         <div className={`${PAGE_CONTENT} bg-white`}>
           <div className={ROW}>
             <div className={COL}>
-              <p className="mb-[10px] text-[15px] font-normal">That page does not exist.</p>
+              <p className="mb-[10px] text-[15px] font-normal">{t.notFound.body}</p>
               <div className="mt-[15px]">
                 <Link href="/" className={BTN_SECONDARY}>
-                  Back to home
+                  {t.notFound.backHome}
                 </Link>
               </div>
             </div>

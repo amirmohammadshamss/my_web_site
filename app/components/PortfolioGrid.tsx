@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 
 import { Icon } from './Icon';
+import { format, t } from '@/i18n';
 
 export type PortfolioItem = {
   project: string;
@@ -20,7 +21,11 @@ export default function PortfolioGrid({ items }: { items: PortfolioItem[] }) {
   const [index, setIndex] = useState(0);
 
   const altFor = (item: PortfolioItem) =>
-    `Screenshot ${item.shot} of the ${item.project} ${item.tag} app`;
+    format(t.a11y.screenshot, {
+      shot: item.shot,
+      project: item.project,
+      tag: item.tag,
+    });
 
   const open = (position: number) => {
     setIndex(position);
@@ -111,7 +116,7 @@ export default function PortfolioGrid({ items }: { items: PortfolioItem[] }) {
 
       <dialog
         ref={dialogRef}
-        aria-label="Portfolio image viewer"
+        aria-label={t.a11y.lightbox}
         className="m-0 h-full max-h-full w-full max-w-full overflow-hidden border-0 bg-transparent p-0 backdrop:bg-[#212121]/[0.88]"
       >
         <div className="flex h-full w-full items-center justify-center px-5 py-[60px]">
@@ -131,7 +136,7 @@ export default function PortfolioGrid({ items }: { items: PortfolioItem[] }) {
         <button
           type="button"
           className={`${LIGHTBOX_BUTTON} top-[14px] right-[14px]`}
-          aria-label="Close"
+          aria-label={t.a11y.close}
           onClick={() => dialogRef.current?.close()}
         >
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" aria-hidden="true">
@@ -142,7 +147,7 @@ export default function PortfolioGrid({ items }: { items: PortfolioItem[] }) {
         <button
           type="button"
           className={`${LIGHTBOX_BUTTON} top-1/2 left-[14px] -translate-y-1/2`}
-          aria-label="Previous image"
+          aria-label={t.a11y.previousImage}
           onClick={() => step(-1)}
         >
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -153,7 +158,7 @@ export default function PortfolioGrid({ items }: { items: PortfolioItem[] }) {
         <button
           type="button"
           className={`${LIGHTBOX_BUTTON} top-1/2 right-[14px] -translate-y-1/2`}
-          aria-label="Next image"
+          aria-label={t.a11y.nextImage}
           onClick={() => step(1)}
         >
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">

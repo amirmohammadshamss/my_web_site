@@ -2,18 +2,20 @@ import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
 
 import resume from '@/data/resume.json';
+import { format, locale, t } from '@/i18n';
 import HashRedirect from './components/HashRedirect';
 import SiteHeader from './components/SiteHeader';
 import './styles/app.css';
 
 const SITE = resume.links.site;
+const YEAR = new Date().getFullYear();
 const TITLE = `${resume.name} — ${resume.jobTitle}`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE),
   title: {
-    default: `${resume.name} Resume`,
-    template: `%s — ${resume.name}`,
+    default: format(t.meta.titleDefault, { name: resume.name }),
+    template: format(t.meta.titleTemplate, { name: resume.name }),
   },
   description: resume.metaDescription,
   authors: [{ name: resume.name, url: SITE }],
@@ -78,7 +80,7 @@ const personSchema = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en-US">
+    <html lang={locale}>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
@@ -114,14 +116,14 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         </div>
         <footer className="fixed inset-x-0 bottom-0">
           <div className="mb-3 block text-center text-xs text-muted">
-            &copy; 2026 {resume.name} &middot;{' '}
-            <a href={`mailto:${resume.links.email}`}>Email</a> &middot;{' '}
+            {format(t.footer.copyright, { year: YEAR, name: resume.name })} &middot;{' '}
+            <a href={`mailto:${resume.links.email}`}>{t.footer.email}</a> &middot;{' '}
             <a href={resume.links.github} rel="noopener" target="_blank">
-              GitHub
+              {t.footer.github}
             </a>{' '}
             &middot;{' '}
             <a href={resume.links.linkedin} rel="noopener" target="_blank">
-              LinkedIn
+              {t.footer.linkedin}
             </a>
           </div>
         </footer>

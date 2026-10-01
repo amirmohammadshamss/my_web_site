@@ -5,11 +5,12 @@ import { usePathname } from 'next/navigation';
 import { useCallback, useEffect, useState } from 'react';
 
 import { Icon } from './Icon';
+import { t } from '@/i18n';
 
 const NAV = [
-  { href: '/', label: 'Home' },
-  { href: '/resume/', label: 'Resume' },
-  { href: '/portfolio/', label: 'Portfolio' },
+  { href: '/', label: t.nav.home },
+  { href: '/resume/', label: t.nav.resume },
+  { href: '/portfolio/', label: t.nav.portfolio },
 ];
 
 /*
@@ -145,7 +146,7 @@ export default function SiteHeader({
         <button
           type="button"
           className="float-right block h-[50px] w-[50px] cursor-pointer overflow-hidden border-0 bg-none p-0 mx-1 text-center"
-          aria-label="Toggle navigation menu"
+          aria-label={t.a11y.toggleMenu}
           aria-controls="site_header"
           aria-expanded={menuOpen}
           onClick={() => setMenuOpen((open) => !open)}

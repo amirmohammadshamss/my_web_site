@@ -1,0 +1,69 @@
+{
+  "locale": "en-US",
+
+  "nav": {
+    "home": "Home",
+    "resume": "Resume",
+    "portfolio": "Portfolio"
+  },
+
+  "meta": {
+    "titleDefault": "{name} Resume",
+    "titleTemplate": "%s — {name}"
+  },
+
+  "home": {
+    "aboutTitle": "About",
+    "aboutTitleAccent": "Me",
+    "downloadResume": "Download Resume",
+    "downloadPortfolio": "Download Portfolio",
+    "factEmail": "e-mail",
+    "factPhone": "Phone",
+    "factLinkedin": "LinkedIn",
+    "factGithub": "GitHub"
+  },
+
+  "resume": {
+    "heading": "Resume",
+    "metaTitle": "Resume",
+    "metaDescription": "Experience, education and technical skills of {name}, {jobTitle}.",
+    "education": "Education",
+    "experience": "Experience",
+    "skillsTitle": "Coding",
+    "skillsTitleAccent": "Skills",
+    "downloadResume": "Download Resume"
+  },
+
+  "portfolio": {
+    "heading": "Portfolio",
+    "metaTitle": "Portfolio",
+    "metaDescription": "Selected web and mobile work by {name}."
+  },
+
+  "notFound": {
+    "heading": "Page not found",
+    "metaTitle": "Page not found",
+    "body": "That page does not exist.",
+    "backHome": "Back to home"
+  },
+
+  "footer": {
+    "copyright": "© {year} {name}",
+    "email": "Email",
+    "github": "GitHub",
+    "linkedin": "LinkedIn"
+  },
+
+  "a11y": {
+    "toggleMenu": "Toggle navigation menu",
+    "twitter": "Twitter",
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "portrait": "Portrait of {name}",
+    "lightbox": "Portfolio image viewer",
+    "close": "Close",
+    "previousImage": "Previous image",
+    "nextImage": "Next image",
+    "screenshot": "Screenshot {shot} of the {project} {tag} app"
+  }
+}

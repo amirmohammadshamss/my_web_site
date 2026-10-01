@@ -15,11 +15,33 @@ npm run typecheck
 
 ## Editing content
 
-All of the resume content lives in [`data/resume.json`](data/resume.json) —
-profile, contact links, facts, education, skills, experience and the portfolio
-items. The pages render from it, so a change there updates the site, the page
-metadata and the JSON-LD `Person` schema together. Nothing is hardcoded in the
-components.
+Text lives in two files, split by what it is:
+
+- [`data/resume.json`](data/resume.json) — **the person's content**: profile,
+  contact links, facts, education, skills, experience, portfolio items. The
+  pages render from it, so a change there updates the site, the page metadata
+  and the JSON-LD `Person` schema together.
+- [`i18n/en.json`](i18n/en.json) — **interface text**: nav labels, section
+  headings, button labels, `aria-label`s, alt-text templates, the footer and
+  the metadata title patterns.
+
+Nothing is hardcoded in the components. Messages with `{placeholders}` are
+filled by `format()` from [`i18n/index.ts`](i18n/index.ts):
+
+```ts
+format(t.a11y.portrait, { name: resume.name }); // "Portrait of ..."
+```
+
+An unknown placeholder is left as-is rather than rendered as `undefined`, so a
+missing value shows up in review instead of shipping quietly.
+
+### Adding a language
+
+`i18n/en.json` covers the chrome, but the resume content in `data/resume.json`
+is English prose too, so a second locale needs both: another messages file and
+a translated copy of the resume data. The routes are static (`output: 'export'`),
+so locales would be separate prefixed routes — `app/[locale]/` with
+`generateStaticParams` — rather than runtime negotiation.
 
 ## Structure
 
@@ -35,7 +57,9 @@ app/
   styles/app.css        Tailwind entry: design tokens, base layer, keyframes
   ui.ts                 class strings shared by more than one page
   components/           SiteHeader, PortfolioGrid, TextRotation, Icon, HashRedirect
-data/resume.json        the single source of content
+data/resume.json        the person's content
+i18n/en.json            interface text
+i18n/index.ts           messages, locale, format()
 public/                 images, CNAME, .nojekyll, .well-known
 ```
 

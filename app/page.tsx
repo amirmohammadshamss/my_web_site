@@ -1,4 +1,5 @@
 import resume from '@/data/resume.json';
+import { format, t } from '@/i18n';
 import { Icon } from './components/Icon';
 import TextRotation from './components/TextRotation';
 import {
@@ -30,7 +31,7 @@ export default function HomePage() {
                 src={resume.photo}
                 width={640}
                 height={640}
-                alt={`Portrait of ${resume.name}`}
+                alt={format(t.a11y.portrait, { name: resume.name })}
                 className="mx-auto max-w-[200px] border-[3px] border-white bg-white shadow-soft transition-all duration-300 hover:-translate-y-[9px] hover:shadow-photo md:mx-0 md:mb-[-75px] md:max-w-[280px]"
               />
             </div>
@@ -44,13 +45,13 @@ export default function HomePage() {
               </div>
 
               <div className="relative mx-auto mt-5 text-center">
-                <a href={links.twitter} aria-label="Twitter" rel="me noopener" target="_blank" className={SOCIAL_LINK}>
+                <a href={links.twitter} aria-label={t.a11y.twitter} rel="me noopener" target="_blank" className={SOCIAL_LINK}>
                   <Icon name="twitter" className="mx-auto my-[10px] block h-4 w-4 fill-current" />
                 </a>
-                <a href={links.github} aria-label="GitHub" rel="me noopener" target="_blank" className={SOCIAL_LINK}>
+                <a href={links.github} aria-label={t.a11y.github} rel="me noopener" target="_blank" className={SOCIAL_LINK}>
                   <Icon name="github" className="mx-auto my-[10px] block h-4 w-4 fill-current" />
                 </a>
-                <a href={links.linkedin} aria-label="LinkedIn" rel="me noopener" target="_blank" className={SOCIAL_LINK}>
+                <a href={links.linkedin} aria-label={t.a11y.linkedin} rel="me noopener" target="_blank" className={SOCIAL_LINK}>
                   <Icon name="linkedin" className="mx-auto my-[10px] block h-4 w-4 fill-current" />
                 </a>
               </div>
@@ -62,19 +63,20 @@ export default function HomePage() {
           <div className={ROW}>
             <div className={COL_HALF}>
               <h3 className={`${BLOCK_TITLE} mb-[10px]`}>
-                About <span className="text-brand">Me</span>
+                {t.home.aboutTitle}{' '}
+                <span className="text-brand">{t.home.aboutTitleAccent}</span>
               </h3>
               <p className="mb-[10px] text-[15px] font-normal">{resume.summary}</p>
 
               <div className="mt-[15px] mr-5">
                 <a href={links.resume} className={BTN_SECONDARY}>
-                  Download Resume
+                  {t.home.downloadResume}
                 </a>
               </div>
 
               <div className="mt-[15px] mr-5">
                 <a href={links.portfolio} className={BTN_SECONDARY}>
-                  Download Portfolio
+                  {t.home.downloadPortfolio}
                 </a>
               </div>
             </div>
@@ -88,25 +90,25 @@ export default function HomePage() {
                   </li>
                 ))}
                 <li className="my-[6px] text-left">
-                  <span className="inline-block min-w-[120px]">e-mail</span>
+                  <span className="inline-block min-w-[120px]">{t.home.factEmail}</span>
                   <span className="inline-block text-muted">
                     <a href={`mailto:${links.email}`}>{links.email}</a>
                   </span>
                 </li>
                 <li className="my-[6px] text-left">
-                  <span className="inline-block min-w-[120px]">Phone</span>
+                  <span className="inline-block min-w-[120px]">{t.home.factPhone}</span>
                   <span className="inline-block text-muted">
                     <a href={`tel:${links.phoneHref}`}>{links.phone}</a>
                   </span>
                 </li>
                 <li className="my-[6px] text-left">
-                  <span className="inline-block min-w-[120px]">LinkedIn</span>
+                  <span className="inline-block min-w-[120px]">{t.home.factLinkedin}</span>
                   <span className="inline-block text-muted">
                     <a href={links.linkedin}>{links.linkedinLabel}</a>
                   </span>
                 </li>
                 <li className="my-[6px] text-left">
-                  <span className="inline-block min-w-[120px]">GitHub</span>
+                  <span className="inline-block min-w-[120px]">{t.home.factGithub}</span>
                   <span className="inline-block text-muted">
                     <a href={links.github}>{links.githubLabel}</a>
                   </span>
