@@ -1,0 +1,147 @@
+/*
+ * Base styles and grid.
+ *
+ * Replaces Bootstrap 3.3.7 (121 KB) with the ~40 declarations index.html and
+ * main.css actually depend on. Values are copied from the Bootstrap build this
+ * file replaces, so rendering is unchanged. Loaded before main.css, which keeps
+ * overriding it exactly as it overrode Bootstrap.
+ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  /* Bootstrap set 10px, and main.css sizes the portfolio overlay title in rem. */
+  font-size: 10px;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+body {
+  margin: 0;
+}
+
+figure {
+  /* The browser default is `1em 40px`, which would break the portfolio grid. */
+  margin: 0;
+}
+
+img {
+  border: 0;
+  vertical-align: middle;
+}
+
+small {
+  font-size: 85%;
+}
+
+b,
+strong {
+  font-weight: 700;
+}
+
+a {
+  background-color: transparent;
+}
+
+
+/* =============================================================================
+Grid - only the column spans this page uses (4, 6, 8, 12)
+============================================================================= */
+
+.row {
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+/* Clearfix: the columns float, so the row has to contain them. */
+.row::before,
+.row::after {
+  content: " ";
+  display: table;
+}
+
+.row::after {
+  clear: both;
+}
+
+.col-sm-4,
+.col-sm-6,
+.col-sm-8,
+.col-sm-12,
+.col-md-4,
+.col-md-6,
+.col-md-8,
+.col-md-12,
+.col-lg-4,
+.col-lg-6,
+.col-lg-8,
+.col-lg-12 {
+  position: relative;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+@media (min-width: 768px) {
+  .col-sm-4,
+  .col-sm-6,
+  .col-sm-8,
+  .col-sm-12 {
+    float: left;
+  }
+
+  .col-sm-4 { width: 33.33333333%; }
+  .col-sm-6 { width: 50%; }
+  .col-sm-8 { width: 66.66666667%; }
+  .col-sm-12 { width: 100%; }
+}
+
+@media (min-width: 992px) {
+  .col-md-4,
+  .col-md-6,
+  .col-md-8,
+  .col-md-12 {
+    float: left;
+  }
+
+  .col-md-4 { width: 33.33333333%; }
+  .col-md-6 { width: 50%; }
+  .col-md-8 { width: 66.66666667%; }
+  .col-md-12 { width: 100%; }
+}
+
+@media (min-width: 1200px) {
+  .col-lg-4,
+  .col-lg-6,
+  .col-lg-8,
+  .col-lg-12 {
+    float: left;
+  }
+
+  .col-lg-4 { width: 33.33333333%; }
+  .col-lg-6 { width: 50%; }
+  .col-lg-8 { width: 66.66666667%; }
+  .col-lg-12 { width: 100%; }
+}
+
+
+/* =============================================================================
+Buttons - structure only; main.css owns padding, colour and type
+============================================================================= */
+
+.btn {
+  display: inline-block;
+  margin-bottom: 0;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+  cursor: pointer;
+  background-image: none;
+  touch-action: manipulation;
+  -webkit-user-select: none;
+  user-select: none;
+}
