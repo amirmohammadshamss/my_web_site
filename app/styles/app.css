@@ -1,0 +1,25 @@
+/*
+ * Stylesheet entry point.
+ *
+ * Two things here are load-bearing:
+ *
+ * 1. Cascade layers. Tailwind puts its utilities in @layer utilities, and any
+ *    UNLAYERED rule beats a layered one no matter the source order. The
+ *    template stylesheet is full of specific selectors like
+ *    `.start-page-content .page-header h1`, so if it stayed unlayered every
+ *    utility class would silently lose to it. Declaring the order up front and
+ *    importing main.css into its own layer below `utilities` is what makes
+ *    `class="mt-4"` actually win.
+ *
+ * 2. No preflight. `@import "tailwindcss"` would pull in Tailwind's base reset,
+ *    which unsets heading sizes, margins and list styles that main.css builds
+ *    on. Importing theme + utilities only leaves the template intact, so the
+ *    two can coexist during the migration.
+ */
+
+@layer theme, base, template, components, utilities;
+
+@import 'tailwindcss/theme.css' layer(theme);
+@import './base.css' layer(base);
+@import './main.css' layer(template);
+@import 'tailwindcss/utilities.css' layer(utilities);

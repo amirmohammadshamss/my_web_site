@@ -4,8 +4,7 @@ import type { ReactNode } from 'react';
 import resume from '@/data/resume.json';
 import HashRedirect from './components/HashRedirect';
 import SiteHeader from './components/SiteHeader';
-import './styles/base.css';
-import './styles/main.css';
+import './styles/app.css';
 
 const SITE = resume.links.site;
 const TITLE = `${resume.name} — ${resume.jobTitle}`;
