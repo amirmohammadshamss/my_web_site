@@ -63,7 +63,6 @@ const personSchema = {
   jobTitle: resume.jobTitle,
   description: resume.metaDescription,
   email: `mailto:${resume.links.email}`,
-  telephone: resume.links.phoneHref,
   address: {
     '@type': 'PostalAddress',
     addressLocality: resume.location.city,

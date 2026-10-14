@@ -95,7 +95,11 @@ export default function HomePage() {
                 {t.home.aboutTitle}{' '}
                 <span className="text-brand">{t.home.aboutTitleAccent}</span>
               </h3>
-              <p className="mb-[10px] text-[15px] font-normal">{resume.summary}</p>
+              {resume.summary.split('\n\n').map((paragraph) => (
+                <p key={paragraph} className="mb-[10px] text-[15px] font-normal">
+                  {paragraph}
+                </p>
+              ))}
 
               <div className="mt-[15px] mr-5">
                 <a href={links.resume} className={BTN_SECONDARY}>
@@ -122,12 +126,6 @@ export default function HomePage() {
                   <span className="inline-block min-w-[120px]">{t.home.factEmail}</span>
                   <span className="inline-block text-muted">
                     <a href={`mailto:${links.email}`}>{links.email}</a>
-                  </span>
-                </li>
-                <li className="my-[6px] text-left">
-                  <span className="inline-block min-w-[120px]">{t.home.factPhone}</span>
-                  <span className="inline-block text-muted">
-                    <a href={`tel:${links.phoneHref}`}>{links.phone}</a>
                   </span>
                 </li>
                 <li className="my-[6px] text-left">
