@@ -101,13 +101,10 @@ export default function HomePage() {
                 </p>
               ))}
 
-              <div className="mt-[15px] mr-5">
+              <div className="mt-[15px] flex flex-wrap gap-5">
                 <a href={links.resume} className={BTN_SECONDARY}>
                   {t.home.downloadResume}
                 </a>
-              </div>
-
-              <div className="mt-[15px] mr-5">
                 <a href={links.portfolio} className={BTN_SECONDARY}>
                   {t.home.downloadPortfolio}
                 </a>

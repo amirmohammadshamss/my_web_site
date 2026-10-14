@@ -29,7 +29,7 @@ export const BLOCK_TITLE = 'mt-[5px] mb-[25px] text-[21px]';
 
 /* .btn + .btn-secondary */
 export const BTN_SECONDARY =
-  'inline-block cursor-pointer rounded-[3px] border-0 bg-white px-[1.5em] text-center align-middle font-sans text-sm font-medium uppercase leading-[2.8] whitespace-nowrap text-heading shadow-btn transition-all duration-300 hover:text-heading hover:shadow-btn-hover';
+  'inline-block cursor-pointer rounded-[3px] border border-rule bg-white px-[1.5em] text-center align-middle font-sans text-sm font-medium uppercase leading-[2.8] whitespace-nowrap text-heading shadow-btn transition-all duration-300 hover:text-heading hover:shadow-btn-hover focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand dark:border-slate-600 dark:bg-slate-800 dark:text-slate-100 dark:shadow-none dark:hover:border-brand dark:hover:bg-slate-700 dark:hover:text-white';
 
 /* .timeline and .timeline-item, including the dot and connector that were
    :before and :after. */
