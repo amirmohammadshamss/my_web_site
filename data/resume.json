@@ -2,10 +2,10 @@
   "name": "Amirmohammad Shams",
   "firstName": "Amirmohammad",
   "lastName": "Shams",
-  "titles": ["Full-Stack Developer", "Web, Backend & Mobile Developer"],
-  "jobTitle": "Full-Stack Developer",
-  "summary": "Full-stack developer with 10 years of software engineering experience across modern web, backend, and mobile systems. I build scalable React and Next.js applications, Node.js and NestJS APIs, and Firebase-backed platforms, with strong experience in system design, databases, testing, CI/CD, and cloud deployment.\n\nI bring additional expertise in Flutter and Android development, with end-to-end ownership from architecture and implementation through testing and production deployment.\n\nI am experienced in distributed teams, concurrent freelance projects, and technical mentorship.",
-  "metaDescription": "Amirmohammad Shams — full-stack developer in Yerevan with 10 years building React, Next.js, Node.js and Flutter products. Resume, experience and portfolio.",
+  "titles": ["Full Stack Developer", "Web, Backend & Mobile Developer"],
+  "jobTitle": "Full Stack Developer",
+  "summary": "Full stack developer with 10 years of software engineering experience across modern web, backend, and mobile systems.   I build scalable React and Next.js applications, Node.js and NestJS APIs, and Firebase-backed platforms, with strong experience in system design, databases, testing, CI/CD, and cloud deployment.\n\nI bring additional expertise in Flutter and Android development, with end-to-end ownership from architecture and implementation through testing and production deployment.\n\nI am experienced in distributed teams, concurrent freelance projects, and technical mentorship.",
+  "metaDescription": "Amirmohammad Shams — full stack developer in Yerevan with 10 years building React, Next.js, Node.js and Flutter products. Resume, experience and portfolio.",
   "photo": "/images/photo.jpg",
   "links": {
     "site": "https://amirshams.me",
@@ -78,12 +78,12 @@
   ],
   "experience": [
     {
-      "title": "Full-Stack Developer",
+      "title": "Full Stack Developer",
       "company": "JustBeFlex",
       "location": "Remote, France",
       "period": "June 2026 - August 2026",
       "highlights": [
-        "Built and delivered full-stack features for a B2B social networking platform designed to connect companies, teams, and professional communities.",
+        "Built and delivered full stack features for a B2B social networking platform designed to connect companies, teams, and professional communities.",
         "Developed responsive Angular interfaces and integrated them with Express.js backend services through REST APIs.",
         "Implemented real-time communication features using WebSockets, enabling live updates and interactive social workflows across the platform.",
         "Designed and integrated backend services for user profiles, company interactions, content workflows, and real-time platform activity.",
@@ -91,22 +91,22 @@
       ]
     },
     {
-      "title": "Full-Stack Developer",
+      "title": "Full Stack Developer",
       "company": "Zen Artisan",
       "location": "Remote, France",
       "period": "January 2024 - December 2025",
       "highlights": [
-        "Built and maintained full-stack web, backend, and mobile features using React, Express.js, and Flutter as part of a five-person engineering team, owning implementation from architecture and API design through testing and production deployment.",
+        "Built and maintained full stack web, backend, and mobile features using React, Express.js, and Flutter as part of a five-person engineering team, owning implementation from architecture and API design through testing and production deployment.",
         "Designed Firebase-based data workflows with Cloud Firestore and Cloud Storage, supporting structured application data, file management, and reliable synchronization across product features.",
         "Integrated OpenAI APIs to power AI-assisted workflows, transforming user input into structured application data and automating key parts of the product workflow.",
         "Deployed and managed backend services and application infrastructure on Google Cloud, integrating cloud services with Firebase for production workloads.",
         "Implemented data scraping and processing pipelines to collect, normalize, and prepare external location and service data for use within the application.",
-        "Designed and implemented 40+ REST APIs in Express.js, connecting AI, database, storage, web, and mobile workflows into a unified full-stack architecture.",
+        "Designed and implemented 40+ REST APIs in Express.js, connecting AI, database, storage, web, and mobile workflows into a unified full stack architecture.",
         "Built and released Flutter mobile applications, managing production deployments and release workflows for both Google Play and the Apple App Store."
       ]
     },
     {
-      "title": "Freelance Full-Stack Developer",
+      "title": "Freelance Full Stack Developer",
       "company": "Upwork Projects",
       "location": "Remote",
       "period": "March 2021 - Present",
