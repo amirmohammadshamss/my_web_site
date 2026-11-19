@@ -17,6 +17,9 @@ import {
 const SOCIAL_LINK =
   'mx-px inline-block h-9 w-9 rounded-3xl bg-white text-center text-muted shadow-soft hover:text-muted hover:shadow-lift';
 
+const FACT_ROW = 'my-[6px] grid grid-cols-[120px_minmax(0,1fr)] text-left';
+const FACT_VALUE = 'wrap-anywhere text-muted';
+
 export default function HomePage() {
   const { links } = resume;
 
@@ -112,30 +115,28 @@ export default function HomePage() {
             </div>
 
             <div className={COL_HALF}>
-              <ul className="m-0 mt-5 inline-block list-none p-0 md:mt-0">
+              <ul className="m-0 mt-5 list-none p-0 md:mt-0">
                 {resume.facts.map((fact) => (
-                  <li key={fact.label} className="my-[6px] text-left">
-                    <span className="inline-block min-w-[120px]">{fact.label}</span>
-                    <span className="inline-block text-muted">{fact.value}</span>
+                  <li key={fact.label} className={FACT_ROW}>
+                    <span>{fact.label}</span>
+                    <span className={FACT_VALUE}>{fact.value}</span>
                   </li>
                 ))}
-                <li className="my-[6px] text-left">
-                  <span className="inline-block min-w-[120px]">{t.home.factEmail}</span>
-                  <span className="inline-block text-muted">
+                <li className={FACT_ROW}>
+                  <span>{t.home.factEmail}</span>
+                  <span className={FACT_VALUE}>
                     <a href={`mailto:${links.email}`}>{links.email}</a>
                   </span>
                 </li>
-                <li className="my-[6px] text-left">
-                  <span className="inline-block min-w-[120px]">
-                    {t.home.factLinkedin}
-                  </span>
-                  <span className="inline-block text-muted">
+                <li className={FACT_ROW}>
+                  <span>{t.home.factLinkedin}</span>
+                  <span className={FACT_VALUE}>
                     <a href={links.linkedin}>{links.linkedinLabel}</a>
                   </span>
                 </li>
-                <li className="my-[6px] text-left">
-                  <span className="inline-block min-w-[120px]">{t.home.factGithub}</span>
-                  <span className="inline-block text-muted">
+                <li className={FACT_ROW}>
+                  <span>{t.home.factGithub}</span>
+                  <span className={FACT_VALUE}>
                     <a href={links.github}>{links.githubLabel}</a>
                   </span>
                 </li>
