@@ -4,7 +4,9 @@
   "nav": {
     "home": "Home",
     "resume": "Resume",
-    "portfolio": "Portfolio"
+    "portfolio": "Portfolio",
+    "openSource": "Open Source",
+    "testimonials": "Testimonials"
   },
 
   "meta": {
@@ -37,6 +39,21 @@
     "heading": "Portfolio",
     "metaTitle": "Portfolio",
     "metaDescription": "Selected web and mobile work by {name}."
+  },
+
+  "openSource": {
+    "heading": "Open Source",
+    "intro": "Selected GitHub projects across Android, full-stack web development, and machine learning.",
+    "metaDescription": "Explore open-source and public GitHub projects by {name}.",
+    "projectsHeading": "GitHub projects",
+    "githubLink": "Browse all repositories on GitHub"
+  },
+
+  "testimonials": {
+    "heading": "Testimonials & Recommendations",
+    "intro": "What colleagues say about working with me.",
+    "metaDescription": "Read professional recommendations for {name} from colleagues.",
+    "linkedinLink": "Read the full recommendations on LinkedIn"
   },
 
   "notFound": {

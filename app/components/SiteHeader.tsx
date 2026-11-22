@@ -11,6 +11,8 @@ const NAV = [
   { href: '/', label: t.nav.home },
   { href: '/resume/', label: t.nav.resume },
   { href: '/portfolio/', label: t.nav.portfolio },
+  { href: '/open-source/', label: t.nav.openSource },
+  { href: '/testimonials/', label: t.nav.testimonials },
 ];
 
 /*
@@ -110,7 +112,7 @@ export default function SiteHeader({
             </div>
           </div>
 
-          <div className="lg:float-right">
+          <nav className="lg:float-right">
             <ul className="m-0 block p-0">
               {NAV.map((item, index) => (
                 <li
@@ -126,6 +128,7 @@ export default function SiteHeader({
                 >
                   <Link
                     href={item.href}
+                    aria-current={isActive(item.href) ? 'page' : undefined}
                     onClick={closeMenu}
                     className={[
                       NAV_LINK,
@@ -139,7 +142,7 @@ export default function SiteHeader({
                 </li>
               ))}
             </ul>
-          </div>
+          </nav>
         </div>
       </header>
 

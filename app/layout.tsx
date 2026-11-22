@@ -83,6 +83,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang={locale}>
       <head>
+        {/* Dark Reader can rewrite DOM attributes before React hydrates in development. */}
+        {process.env.NODE_ENV === 'development' && (
+          <meta name="darkreader-lock" content="true" />
+        )}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
         <link

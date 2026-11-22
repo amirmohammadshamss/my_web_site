@@ -19,6 +19,57 @@
     "resume": "https://docs.google.com/document/d/10q2l7j53mD1Asov5_ZneJ9TB9uwg2umHJULono_H_RQ/edit?usp=sharing",
     "portfolio": "https://drive.google.com/file/d/1lxC0c5AJgsPGeBw_zC8qjGExiJAhZJ41/view?usp=sharing"
   },
+  "repositories": [
+    {
+      "name": "Farhang-e Moein",
+      "slug": "Farhanq-Loqat-Moein",
+      "description": "An Android edition of the Moein Persian dictionary for looking up words and their meanings.",
+      "technologies": ["Kotlin", "Android"],
+      "license": "Apache-2.0"
+    },
+    {
+      "name": "Rosheno",
+      "slug": "Hamrahak",
+      "description": "An offline-first Persian Android launcher for older adults, with large text and quick access to family contacts, calls, and messages.",
+      "technologies": ["Kotlin", "Jetpack Compose"]
+    },
+    {
+      "name": "Educational Management Platform",
+      "slug": "Educational-Management-Platform",
+      "description": "A platform for French training institutions to book lessons, track training hours, and manage homework across student, teacher, and admin dashboards.",
+      "technologies": ["Next.js", "TypeScript", "PostgreSQL", "Prisma"]
+    },
+    {
+      "name": "AI Project Estimator",
+      "slug": "AI-Project-Estimator",
+      "description": "A software project estimation tool with AI-assisted cost estimates, risk analysis, version history, and PDF reports.",
+      "technologies": ["Next.js", "NestJS", "PostgreSQL", "Redis"]
+    },
+    {
+      "name": "Simple LLM",
+      "slug": "Simple-LLM",
+      "description": "An educational GPT implementation that covers tokenization, training a decoder-only transformer from scratch, and generating text.",
+      "technologies": ["Python", "Transformers"]
+    },
+    {
+      "name": "Store Shop",
+      "slug": "Store-Shop",
+      "description": "A Persian multi-store shopping site with right-to-left layouts, searchable catalogs, wishlists, carts, and checkout previews.",
+      "technologies": ["Next.js", "TypeScript", "Tailwind CSS"]
+    }
+  ],
+  "recommendations": [
+    {
+      "name": "Mahdi Mohammadi",
+      "excerpt": "Amirmohammad is a proactive team player who stays updated with the latest trends",
+      "summary": "Mahdi highlights my Flutter, Dart, and Kotlin expertise and my focus on building fast, easy-to-use mobile apps."
+    },
+    {
+      "name": "Mohammad Khorram",
+      "excerpt": "His exceptional blend of logic, strategic thinking, and collaborative spirit",
+      "summary": "Mohammad highlights how I communicate with teammates and keep people aligned and motivated."
+    }
+  ],
   "facts": [
     { "label": "Experience", "value": "10 years" },
     { "label": "Residence", "value": "Yerevan, Armenia" },
