@@ -22,7 +22,7 @@ export default function ContactPage() {
         <section className="rounded-lg border border-rule p-5">
           <h2 className="mb-4 text-xl">{t.contact.formHeading}</h2>
           <form
-            action={`https://formsubmit.co/${email}`}
+            action="https://formsubmit.co/f205b2406e3550a6ee56a2a7fde658b1"
             method="post"
             className="space-y-4"
             aria-describedby="contact-form-service"
