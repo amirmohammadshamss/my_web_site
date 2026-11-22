@@ -4,7 +4,14 @@ import resume from '@/data/resume.json';
 
 export const dynamic = 'force-static';
 
-const ROUTES = ['/', '/resume/', '/portfolio/', '/open-source/', '/testimonials/'];
+const ROUTES = [
+  '/',
+  '/resume/',
+  '/portfolio/',
+  '/open-source/',
+  '/testimonials/',
+  '/contact/',
+];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();

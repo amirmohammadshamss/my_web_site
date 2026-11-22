@@ -13,6 +13,7 @@ const NAV = [
   { href: '/portfolio/', label: t.nav.portfolio },
   { href: '/open-source/', label: t.nav.openSource },
   { href: '/testimonials/', label: t.nav.testimonials },
+  { href: '/contact/', label: t.nav.contact },
 ];
 
 /*

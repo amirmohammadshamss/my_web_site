@@ -6,7 +6,8 @@
     "resume": "Resume",
     "portfolio": "Portfolio",
     "openSource": "Open Source",
-    "testimonials": "Testimonials"
+    "testimonials": "Testimonials",
+    "contact": "Contact Me"
   },
 
   "meta": {
@@ -54,6 +55,20 @@
     "intro": "What colleagues say about working with me.",
     "metaDescription": "Read professional recommendations for {name} from colleagues.",
     "linkedinLink": "Read the full recommendations on LinkedIn"
+  },
+
+  "contact": {
+    "heading": "Contact Me",
+    "intro": "Get in touch about projects, collaborations, or job opportunities.",
+    "metaDescription": "Send {name} a message about projects, collaborations, or job opportunities.",
+    "formHeading": "Send a message",
+    "nameLabel": "Your name",
+    "emailLabel": "Your email",
+    "messageLabel": "Message",
+    "submit": "Send message",
+    "emailSubject": "New message from your portfolio",
+    "formService": "This form uses FormSubmit to deliver your message.",
+    "directHeading": "Other ways to reach me"
   },
 
   "notFound": {
